@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+data/processed/*.db
+models/*.joblib
+models/*.pkl
+models/*.json
+venv/
+.venv/
+*.pyc
+
