@@ -1,0 +1,15 @@
+# Health module
+
+Health is a separate sidebar page with three tabs. It does not replace Injury Prediction and does not diagnose disease.
+
+**Health Monitoring** combines prior `health.csv` and `medical_tests.csv` measurements with a separately documented `health_events.csv` outcome log. Its supervised target is a documented event during D through D+6. A missing outcome row is never a negative. With insufficient labelled follow-up, the page explains the blocker rather than training. When ready, it compares Logistic Regression, Random Forest and Gradient Boosting classifiers, shows validation candidates and held-out test metrics, and saves the selected preprocessing/model pipeline separately. A player/date prediction shows a probability, a display band and model feature sensitivity. Features must predate the selected prediction date.
+
+**Health Trends** is statistical analysis, not another ML model. Select a player to see Heart (resting HR, HRV), Sleep, Recovery (soreness, fatigue, stress, energy), Hydration, Body, Vitals and available Medical tests. It plots observed values with calendar rolling averages: seven days for daily measurements and 90 days for periodic labs. The recent value is the last observed value; change percentage compares the last two observations when the previous one is nonzero; direction uses the slope of up to seven observed values. Missing metrics are not plotted or treated as zero.
+
+**Health Clustering** is unsupervised K-Means, run on demand. For a chosen date, each eligible player contributes nine recent Health means plus latest hemoglobin, ferritin, vitamin D and CRP where available. A feature is included only if it varies and at least half of eligible players have it. Median imputation and standard scaling precede K-Means (`n_init=10`, `random_state=42`); the user chooses 2–5 clusters, default 3. The page shows assignments, cluster means in original units and relative summaries based on the three strongest standardized mean differences. PCA creates two plot coordinates only; clustering fits the full selected scaled feature matrix. Numeric cluster IDs carry no health ranking.
+
+The fictional demo has stable, improving, declining and inconsistent profiles and separate authored Health outcomes. Its events are educational scenarios, not diagnoses or labels calculated from arbitrary HRV, sleep or laboratory thresholds. Sparse panels and stale results can limit predictions. If a lab result was released later than collection, provide the date it became available as `test_date`; the date-only schema cannot reconstruct release timing. Players can occur in multiple time partitions, probabilities are uncalibrated, and no external clinical validation is included.
+
+> This is an educational sports-health monitoring and machine-learning project. Predictions are not medical diagnoses and should be reviewed by qualified medical or sports-health professionals.
+
+Use [DATA_DICTIONARY.md](DATA_DICTIONARY.md) for every field and [DEMO_GUIDE.md](DEMO_GUIDE.md) for the manual upload sequence.

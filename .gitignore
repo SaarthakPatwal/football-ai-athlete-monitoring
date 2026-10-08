@@ -4,10 +4,16 @@ __pycache__/
 .pytest_cache/
 .streamlit/secrets.toml
 data/processed/*.db
+data/*.db
+data/model_artifacts/
 models/*.joblib
 models/*.pkl
 models/*.json
+ml/saved_models/*.joblib
+ml/saved_models/*.json
+ml/saved_models_test/
+.pytest_tmp/
+test-tmp-local/
 venv/
 .venv/
 *.pyc
-

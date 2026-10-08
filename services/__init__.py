@@ -1,2 +1,1 @@
-"""Service layer for querying and explaining football intelligence data."""
-
+"""Shared validation, raw-data ingestion and historical features."""

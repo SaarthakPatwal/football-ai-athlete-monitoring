@@ -1,0 +1,42 @@
+The uploaded data is stored in the SQLite database, not inside the CSV files. Deleting a CSV file from `demo_data` will not remove records already imported.
+
+To replace everything with new data:
+
+1. Stop Streamlit with `Ctrl+C`.
+2. From the project folder, run:
+
+```powershell-->>
+
+
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+
+Move-Item .\data\football_ml.db ".\data\football_ml.db.$stamp.backup"
+
+if (Test-Path .\data\model_artifacts) {
+    Move-Item .\data\model_artifacts ".\data\model_artifacts.$stamp.backup"
+}
+
+
+```
+
+3. Start the app again:
+
+```powershell
+python -m streamlit run app.py
+```
+
+The app will create a fresh empty database. Then upload your new files through:
+
+`Data → CSV Upload`
+
+Import them in this order:
+
+1. `players.csv`
+2. `health.csv`
+3. `medical_tests.csv`
+4. `health_events.csv`
+5. Any training, recovery, injury, or match CSVs you want to use
+
+Do not re-upload old files with the same player/date combinations, because they will be rejected as duplicates.
+
+The backup files are recoverable. If you only want to replace Health data while keeping existing Injury and Performance data, tell me and I can add a safe “Clear Health Data” button to the Data page.

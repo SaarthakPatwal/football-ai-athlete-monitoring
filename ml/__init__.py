@@ -1,2 +1,1 @@
-"""Machine-learning interfaces for reproducible demo models."""
-
+"""Supervised injury classification and next-match rating regression."""

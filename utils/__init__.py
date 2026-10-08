@@ -1,2 +1,1 @@
-"""Utility modules for calculations, charts and generated data."""
-
+"""Small presentation helpers."""

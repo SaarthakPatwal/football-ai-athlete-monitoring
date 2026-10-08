@@ -1,9 +1,9 @@
-streamlit>=1.36
+streamlit>=1.62
 pandas>=2.2
 numpy>=1.26
 plotly>=5.22
 SQLAlchemy>=2.0
 scikit-learn>=1.5
+joblib>=1.4
 python-dotenv>=1.0
 pytest>=8.2
-

@@ -1,0 +1,392 @@
+{
+  "ready": true,
+  "reasons": [],
+  "dataset_rows": 240,
+  "players": 12,
+  "matches": 252,
+  "injury_events": 36,
+  "positive_labels": null,
+  "negative_labels": null,
+  "missing_fraction": {
+    "age": 0.0,
+    "position": 0.0,
+    "recent_rating_mean": 0.0,
+    "rating_trend": 0.05,
+    "recent_minutes": 0.0,
+    "recent_goals": 0.0,
+    "recent_assists": 0.0,
+    "rating_consistency": 0.05,
+    "workload_7d": 0.0,
+    "workload_28d": 0.0,
+    "workload_change_pct": 0.15,
+    "sprint_load_7d": 0.0,
+    "high_speed_load_7d": 0.0,
+    "sleep_hours_7d_mean": 0.0,
+    "sleep_quality_7d_mean": 0.0,
+    "hrv_7d_mean": 0.0,
+    "resting_hr_7d_mean": 0.0,
+    "soreness_7d_mean": 0.0,
+    "stress_7d_mean": 0.0
+  },
+  "partitions": {
+    "train": 144,
+    "validation": 48,
+    "test": 48,
+    "purged": 0
+  },
+  "trained_at": "2026-10-07T04:07:47.295219+00:00",
+  "feature_version": 1,
+  "dataset_fingerprint": "3f39d3729d4bd9bf66963fe5b4c0d7ed56b7975d1ca3f445d35dcb94dd4aa0f7",
+  "data_cutoff": "2026-10-06",
+  "training_player_ids": [
+    "P001",
+    "P002",
+    "P003",
+    "P004",
+    "P005",
+    "P006",
+    "P007",
+    "P008",
+    "P009",
+    "P010",
+    "P011",
+    "P012"
+  ],
+  "features": [
+    "age",
+    "position",
+    "recent_rating_mean",
+    "rating_trend",
+    "recent_minutes",
+    "recent_goals",
+    "recent_assists",
+    "rating_consistency",
+    "workload_7d",
+    "workload_28d",
+    "workload_change_pct",
+    "sprint_load_7d",
+    "high_speed_load_7d",
+    "sleep_hours_7d_mean",
+    "sleep_quality_7d_mean",
+    "hrv_7d_mean",
+    "resting_hr_7d_mean",
+    "soreness_7d_mean",
+    "stress_7d_mean"
+  ],
+  "target": "next match rating",
+  "fitted_through": "2026-09-06",
+  "best_model": "Random Forest Regressor",
+  "comparison": [
+    {
+      "model": "Linear Regression",
+      "mae": 0.31328391873715294,
+      "rmse": 0.37609265622752147,
+      "r2": -0.19587885690480755
+    },
+    {
+      "model": "Random Forest Regressor",
+      "mae": 0.29758211061508,
+      "rmse": 0.3422294675298406,
+      "r2": 0.009778653609508914
+    },
+    {
+      "model": "Gradient Boosting Regressor",
+      "mae": 0.29955143385345046,
+      "rmse": 0.35495776944523805,
+      "r2": -0.06524831118490848
+    }
+  ],
+  "test_metrics": {
+    "mae": 0.2955289748677249,
+    "rmse": 0.3618646935673762,
+    "r2": 0.2332994987034236
+  },
+  "selection_metric": "lowest validation MAE",
+  "methodology": "Chronological 60/20/20 by distinct dates. Labels crossing boundaries are purged. Select on validation, refit on train + validation, evaluate on untouched test. No random split.",
+  "date_ranges": {
+    "train": [
+      "2026-05-23",
+      "2026-08-08"
+    ],
+    "validation": [
+      "2026-08-15",
+      "2026-09-05"
+    ],
+    "test": [
+      "2026-09-12",
+      "2026-10-03"
+    ]
+  },
+  "top_model_contributors": [
+    {
+      "feature": "recent_rating_mean",
+      "value": 0.243277411290955,
+      "absolute_value": 0.243277411290955
+    },
+    {
+      "feature": "hrv_7d_mean",
+      "value": 0.08840208492738771,
+      "absolute_value": 0.08840208492738771
+    },
+    {
+      "feature": "sprint_load_7d",
+      "value": 0.0726952944035946,
+      "absolute_value": 0.0726952944035946
+    },
+    {
+      "feature": "rating_trend",
+      "value": 0.06313960109746093,
+      "absolute_value": 0.06313960109746093
+    },
+    {
+      "feature": "high_speed_load_7d",
+      "value": 0.05693442842579643,
+      "absolute_value": 0.05693442842579643
+    },
+    {
+      "feature": "rating_consistency",
+      "value": 0.052691191511997616,
+      "absolute_value": 0.052691191511997616
+    },
+    {
+      "feature": "recent_goals",
+      "value": 0.05159597478911852,
+      "absolute_value": 0.05159597478911852
+    },
+    {
+      "feature": "sleep_hours_7d_mean",
+      "value": 0.04977437260163551,
+      "absolute_value": 0.04977437260163551
+    },
+    {
+      "feature": "workload_change_pct",
+      "value": 0.04854266215093584,
+      "absolute_value": 0.04854266215093584
+    },
+    {
+      "feature": "workload_28d",
+      "value": 0.04244365864720971,
+      "absolute_value": 0.04244365864720971
+    },
+    {
+      "feature": "resting_hr_7d_mean",
+      "value": 0.03794455001040844,
+      "absolute_value": 0.03794455001040844
+    },
+    {
+      "feature": "workload_7d",
+      "value": 0.03621800058917063,
+      "absolute_value": 0.03621800058917063
+    },
+    {
+      "feature": "recent_minutes",
+      "value": 0.03126226199954685,
+      "absolute_value": 0.03126226199954685
+    },
+    {
+      "feature": "soreness_7d_mean",
+      "value": 0.02575375129859317,
+      "absolute_value": 0.02575375129859317
+    },
+    {
+      "feature": "age",
+      "value": 0.020940843148464384,
+      "absolute_value": 0.020940843148464384
+    },
+    {
+      "feature": "stress_7d_mean",
+      "value": 0.01988023921960468,
+      "absolute_value": 0.01988023921960468
+    },
+    {
+      "feature": "recent_assists",
+      "value": 0.019010868876187918,
+      "absolute_value": 0.019010868876187918
+    },
+    {
+      "feature": "sleep_quality_7d_mean",
+      "value": 0.017641741792362463,
+      "absolute_value": 0.017641741792362463
+    },
+    {
+      "feature": "missingindicator_workload_change_pct",
+      "value": 0.003177880324478867,
+      "absolute_value": 0.003177880324478867
+    },
+    {
+      "feature": "position_ST",
+      "value": 0.0030830179069697154,
+      "absolute_value": 0.0030830179069697154
+    },
+    {
+      "feature": "position_CB",
+      "value": 0.003027505184947233,
+      "absolute_value": 0.003027505184947233
+    },
+    {
+      "feature": "position_W",
+      "value": 0.0027796157811528243,
+      "absolute_value": 0.0027796157811528243
+    },
+    {
+      "feature": "position_CM",
+      "value": 0.002374360683444514,
+      "absolute_value": 0.002374360683444514
+    },
+    {
+      "feature": "position_FB",
+      "value": 0.0019096049474743796,
+      "absolute_value": 0.0019096049474743796
+    },
+    {
+      "feature": "missingindicator_rating_consistency",
+      "value": 0.001593154163982412,
+      "absolute_value": 0.001593154163982412
+    },
+    {
+      "feature": "position_GK",
+      "value": 0.0014873266636913525,
+      "absolute_value": 0.0014873266636913525
+    },
+    {
+      "feature": "position_AM",
+      "value": 0.001340969137007099,
+      "absolute_value": 0.001340969137007099
+    },
+    {
+      "feature": "missingindicator_rating_trend",
+      "value": 0.0010776284264212264,
+      "absolute_value": 0.0010776284264212264
+    }
+  ],
+  "prediction_examples": [
+    {
+      "player_id": "P001",
+      "date": "2026-09-12",
+      "actual": 7.07,
+      "predicted": 6.388597023809524
+    },
+    {
+      "player_id": "P002",
+      "date": "2026-09-12",
+      "actual": 6.13,
+      "predicted": 6.436056904761906
+    },
+    {
+      "player_id": "P003",
+      "date": "2026-09-12",
+      "actual": 6.35,
+      "predicted": 6.435658095238097
+    },
+    {
+      "player_id": "P004",
+      "date": "2026-09-12",
+      "actual": 6.23,
+      "predicted": 6.407974404761905
+    },
+    {
+      "player_id": "P005",
+      "date": "2026-09-12",
+      "actual": 7.17,
+      "predicted": 6.346228928571428
+    },
+    {
+      "player_id": "P006",
+      "date": "2026-09-12",
+      "actual": 6.23,
+      "predicted": 6.369688214285714
+    },
+    {
+      "player_id": "P007",
+      "date": "2026-09-12",
+      "actual": 6.45,
+      "predicted": 6.503796071428574
+    },
+    {
+      "player_id": "P008",
+      "date": "2026-09-12",
+      "actual": 6.33,
+      "predicted": 6.506106865079365
+    },
+    {
+      "player_id": "P009",
+      "date": "2026-09-12",
+      "actual": 6.37,
+      "predicted": 6.502391111111114
+    },
+    {
+      "player_id": "P010",
+      "date": "2026-09-12",
+      "actual": 6.33,
+      "predicted": 6.117990873015871
+    },
+    {
+      "player_id": "P011",
+      "date": "2026-09-12",
+      "actual": 6.55,
+      "predicted": 6.356415079365079
+    },
+    {
+      "player_id": "P012",
+      "date": "2026-09-12",
+      "actual": 6.43,
+      "predicted": 6.42713142857143
+    },
+    {
+      "player_id": "P001",
+      "date": "2026-09-19",
+      "actual": 6.72,
+      "predicted": 6.45650238095238
+    },
+    {
+      "player_id": "P002",
+      "date": "2026-09-19",
+      "actual": 5.68,
+      "predicted": 6.268790238095237
+    },
+    {
+      "player_id": "P003",
+      "date": "2026-09-19",
+      "actual": 6.91,
+      "predicted": 6.398037380952381
+    },
+    {
+      "player_id": "P004",
+      "date": "2026-09-19",
+      "actual": 6.78,
+      "predicted": 6.441335238095239
+    },
+    {
+      "player_id": "P005",
+      "date": "2026-09-19",
+      "actual": 6.82,
+      "predicted": 6.620734444444446
+    },
+    {
+      "player_id": "P006",
+      "date": "2026-09-19",
+      "actual": 5.78,
+      "predicted": 6.311729920634922
+    },
+    {
+      "player_id": "P007",
+      "date": "2026-09-19",
+      "actual": 6.11,
+      "predicted": 6.357095317460319
+    },
+    {
+      "player_id": "P008",
+      "date": "2026-09-19",
+      "actual": 6.88,
+      "predicted": 6.391084523809526
+    }
+  ],
+  "limitations": [
+    "Recorded age and position are static profile inputs; historical age changes are not inferred.",
+    "Injury-free labels require explicit daily outcome records for all seven days.",
+    "Unrecorded training/rest days cannot be distinguished; workload totals cover recorded sessions only.",
+    "Players can occur in multiple time partitions; metrics measure future records, not unseen-player generalization.",
+    "Global feature importance is not a causal explanation or a player-specific attribution.",
+    "Probabilities are uncalibrated research outputs, not medical advice."
+  ]
+}
